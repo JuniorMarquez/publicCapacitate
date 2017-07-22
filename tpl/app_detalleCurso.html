@@ -1,0 +1,367 @@
+
+<link href="../css2/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css2/jquery-ui.min.css" rel="stylesheet" type="text/css">
+<link href="../css2/animate.css" rel="stylesheet" type="text/css">
+<link href="../css2/css-plugin-collections.css" rel="stylesheet"/>
+<!-- CSS | menuzord megamenu skins -->
+<link id="menuzord-menu-skins" href="../css2/menuzord-skins/menuzord-rounded-boxed.css" rel="stylesheet"/>
+<!-- CSS | Main style file -->
+<link href="../css2/style-main.css" rel="stylesheet" type="text/css">
+<!-- CSS | Preloader Styles -->
+<link href="../css2/preloader.css" rel="stylesheet" type="text/css">
+<!-- CSS | Custom Margin Padding Collection -->
+<link href="../css2/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+<!-- CSS | Responsive media queries -->
+<link href="../css2/responsive.css" rel="stylesheet" type="text/css">
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = true;
+  ">
+  <!-- main -->
+  <div class="col" ng-controller="detalleCursoCtrl">
+ <div class="main-content bg-lighter">
+    <!-- Section: inner-header -->
+
+
+    <!-- Section: Blog -->
+    <section>
+      <div class="container mt-30 mb-0 pt-30 pb-30">
+        <div class="row">
+          <div class="col-md-8 blog-pull-right">
+            <div class="single-service">
+              <img src="images/services/lg2.jpg" alt="">
+              <h3 class="text-theme-colored">{{capacitacion.titulo}}</h3>
+              <h5><em>{{capacitacion.subtitulo}}</em></h5>
+              <p></p>
+              <p >
+            <ul>
+              <li  ng-repeat="item in itemsContenido">
+                {{item.contenido}}
+              </li>
+            </ul>
+
+             <!--    <span ng-repeat"item in itemsContenido">{{item.contenido}}</span> -->
+              </p>
+              <div class="row">
+              <!--   <div class="col-md-12">
+                  <h3 class="text-theme-colored">Features of the course </h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et optio cum velit autem dolor reprehenderit saepe assumenda eos, qui. Voluptatem eveniet, illum dolor nemo? Velit maiores quaerat a non dolor praesentium, corporis optio ullam, voluptatem fuga consequatur sed cupiditate quam!</p> <br>
+                  <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                      <div class="icon-box box-border text-center mb-20 p-15"> 
+                       <i class="fa fa-desktop text-theme-color-2 font-36"></i>
+                        <h4>Best Lab</h4>
+                      </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                      <div class="icon-box box-border text-center mb-20 p-15">
+                        <i class="fa fa-user text-theme-color-2 font-36"></i>
+                        <h4 class="">Best Teachers</h4>
+                      </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                      <div class="icon-box box-border text-center mb-20 p-15">
+                        <i class="fa fa-money text-theme-color-2 font-36"></i>
+                        <h4 class="">Low Cost Services</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="text-theme-colored title-border mb-30 mt-50">Suscríbete y obtén información sobre nuestras capacitaciones!</h3>
+              
+                 
+                  <!-- <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="includes/appointment.php">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group mb-10">
+                          <input id="form_name" name="form_name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group mb-10">
+                          <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group mb-10">
+                          <input id="form_phone" name="form_phone" class="form-control required" type="text" placeholder="Enter Phone" aria-required="true">
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group mb-10">
+                          <input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-10">
+                      <textarea id="form_message" name="form_message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                    </div>
+                    <div class="form-group mb-0 mt-20">
+                      <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                      <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Submit</button>
+                    </div>
+                  </form> -->
+                  
+
+                  <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" action="includes/become-volunteer.php" method="post" enctype="multipart/form-data">
+                <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+     
+                      <input id="form_name" name="form_cedula" type="number" placeholder="C.I" required="" class="form-control">
+                    </div>
+                  </div>
+                   <div class="col-sm-2">
+                    <div class="form-group mb-4">
+                
+                      <div class="styled-select">
+                        <select id="booking_service" name="booking_service" class="form-control" required="">
+                            <option value="">- Sexo -</option>
+                        <option value="Accounting Technoloiges">F</option>
+                        <option value="Chemical Engineering">M</option>
+          
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"></div>
+                  <div class="col-sm-5">
+                    <div class="form-group">
+
+                      <input id="form_name" name="form_nombres" type="text" placeholder="Nombres" required="" class="form-control">
+                    </div>
+                  </div>
+                        <div class="col-sm-5">
+                    <div class="form-group">
+                 
+                      <input id="form_name" name="form_apellidos" type="text" placeholder="Apellidos" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+
+                      <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Email">
+                    </div>
+                  </div>
+                   <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input id="form_name" name="form_telefono" type="number" placeholder="teléfono" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row"></div>
+                    <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input id="form_email" name="form_instagram" class="form-control required" type="text" placeholder="Instagram">
+                    </div>
+                  </div>
+                   <div class="col-sm-3">
+                    <div class="form-group">
+          
+                      <input id="form_name" name="form_facebook" type="text" placeholder="Facebook" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input id="form_name" name="form_twitter" type="text" placeholder="Twitter" required="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                 <div class="row">
+                 <!--  <div class="col-sm-12">
+                    <div class="form-group mb-10">
+    
+                      <div class="styled-select">
+                        <select id="booking_service" name="booking_service" class="form-control" required="">
+                            <option value="">- Universidad -</option>
+                        <option value="Accounting Technoloiges">Universidad Nacional Experimental del Táchira</option>
+                        <option value="Chemical Engineering"></option>
+                        <option value="Computer Technologies">Universidad de los Andes</option>
+                        <option value="Development Studies">Universidad de Carabobo</option>
+                 
+                        </select>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                
+                      <input id="form_name" name="form_universidad" type="text" placeholder="Universidad" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                
+                      <input id="form_name" name="form_apellidos" type="text" placeholder="Carrera Universitaria" required="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group mb-10">
+                   
+                      <div class="styled-select">
+                        <select id="booking_service" name="booking_service" class="form-control" required="">
+                            <option value="">- Áctividad académica de interés -</option>
+                        <option value="Accounting Technoloiges">Aduanera y Tributaria</option>
+                        <option value="Chemical Engineering">Contable y Financiera</option>
+                        <option value="Computer Technologies">Formación Gerencial y Empresarial</option>
+                        <option value="Development Studies">Formación Pedagógica</option>
+                        <option value="Electrical & Electronic">Legislación</option>
+                        <option value="Modern Languages">Marketing y Ventas</option>
+                        <option value="Modern Technologies">Laboral, Seguridad y Salud Ocupacional</option>
+                        <option value="Software Engineering">Tecnología de la Información y Comunicación</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="col-sm-12">
+                    <div class="form-group">
+                      <!-- <label for="form_name">Carrera universitaria<small>*</small></label> -->
+                      <input id="form_name" name="form_entero" type="text" placeholder="¿Cómo se enteró de Capacítate?" required="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+               
+    
+                <div class="form-group">
+                  <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+                  <button type="submit" class="btn btn-block btn-primary2 btn-theme-colored btn-sm mt-20 pt-10 pb-10 bold" data-loading-text="Please wait...">Suscribirse</button>
+                </div>
+              </form>
+                  <!-- Appointment Form Validation-->
+
+                  <!-- Appointment Form Ends -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="sidebar sidebar-left mt-sm-30 ml-40">
+              <div class="widget">
+                <h4 class="widget-title line-bottom">Listado de cursos</h4>
+                <div class="services-list">
+                  <ul class="list list-border angle-double-right">
+                    <li ng-repeat="capacitacion in capacitacionesFiltradas"><a href="page-courses-accounting-technologies.html">{{capacitacion.titulo}}</a></li>
+                    
+                  </ul>
+                </div>
+              </div>
+           <!--    <div class="widget">
+                <h4 class="widget-title line-bottom">Opening Hours</h4>
+                <div class="opening-hours">
+                  <ul class="list-border">
+                    <li class="clearfix"> <span> Mon - Tues :  </span>
+                      <div class="value pull-right"> 6.00 am - 10.00 pm </div>
+                    </li>
+                    <li class="clearfix"> <span> Wednes - Thurs :</span>
+                      <div class="value pull-right"> 8.00 am - 6.00 pm </div>
+                    </li>
+                    <li class="clearfix"> <span> Fri : </span>
+                      <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
+                    </li>
+                    <li class="clearfix"> <span> Sun : </span>
+                      <div class="value pull-right"> Colosed </div>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+<!--               <div class="widget">
+                <h4 class="widget-title line-bottom">Latest News</h4>
+                <div class="latest-posts">
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                </div>
+              </div> -->
+            <!--   <div class="widget">
+                <div class="mt-30 p-30" style="border: 10px solid #f1f1f1;">
+                  <h5 class="text-theme-colored title-border mb-20">student's Feedback</h5>
+                  <div class="testimonial-carousel-info owl-nav-top">
+                    <div class="item">
+                      <div class="comment">
+                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
+                      </div>
+                      <div class="content mt-20">
+                        <div class="thumb pull-right">
+                          <img class="img-circle" alt="" src="images/testimonials/s1.jpg">
+                        </div>
+                        <div class="patient-details text-right pull-right mr-20 mt-10">
+                          <h5 class="author">Jonathan Smith</h5>
+                          <h6 class="title">cici inc.</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="comment">
+                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
+                      </div>
+                      <div class="content mt-20">
+                        <div class="thumb pull-right">
+                          <img class="img-circle" alt="" src="images/testimonials/s2.jpg">
+                        </div>
+                        <div class="patient-details text-right pull-right mr-20 mt-10">
+                          <h5 class="author">Jonathan Smith</h5>
+                          <h6 class="title">cici inc.</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="comment">
+                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
+                      </div>
+                      <div class="content mt-20">
+                        <div class="thumb pull-right">
+                          <img class="img-circle" alt="" src="images/testimonials/s3.jpg">
+                        </div>
+                        <div class="patient-details text-right pull-right mr-20 mt-10">
+                          <h5 class="author">Jonathan Smith</h5>
+                          <h6 class="title">cici inc.</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+          <!--     <div class="widget">
+                <h4 class="widget-title line-bottom">Photos from Flickr</h4>
+                <div id="flickr-feed" class="clearfix">
+       
+                  <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=52617155@N08">
+                  </script>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+        
+      </div>
+      
+</div>
