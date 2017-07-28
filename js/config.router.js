@@ -111,6 +111,24 @@ angular.module('app')
                       }]
                   }
               }) 
+              .state('app.facilitadores', {
+                  url: '/facilitadores',
+                  templateUrl: 'tpl/app_facilitadores.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad ){
+                          return $ocLazyLoad.load(['ui.select','toaster','ngGrid']).then(
+                              function(){
+                                  return $ocLazyLoad.load([
+                                    'js/controllers/chart.js',
+                                                  'js/controllers/bootstrap.js',
+                                                  'js/app/facilitadores/facilitadores.js'
+                                                  ]);
+                              }
+                          );
+                      }]
+                  }
+              }) 
               .state('app.publicaciones', {
                   url: '/publicaciones',
                   templateUrl: 'tpl/apps_publicaciones.html',

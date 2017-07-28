@@ -2862,6 +2862,13 @@ fieldset[disabled] .i-checks input + i:before {
 
 .item {
   position: relative;
+  display: inline-block;
+  padding-right: 5px;
+}
+.item2 {
+  position: relative;
+ /* display: inline-block;
+  padding-right: 5px;*/
 }
 
 .item .top {
@@ -5014,6 +5021,11 @@ a.text-#000000:hover {
 
 .thumb {
   display: inline-block;
+  /*width: 50px;*/
+}
+
+.thumb2 {
+  /*display: inline-block;*/
   /*width: 50px;*/
 }
 

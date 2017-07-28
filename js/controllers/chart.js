@@ -8,12 +8,27 @@ app
 //       if (typeof MyService.data.email==="undefined"){
 //   $state.go('access.signin');
 // }
-$scope.visor = function(pie) {
-    var pie = document.getElementById(pie).innerHTML;
-   if (pie){
-    return (false);
-   }
+// $scope.visor = function(pie) {
+//     var pie = document.getElementById(pie).innerHTML;
+//    if (pie){
+//     return (false);
+//    }
+// };
+
+
+ $scope.popSuscripcion = function(){
+    toaster.pop($scope.toaster.typeS, $scope.toaster.titleS, $scope.toaster.textS);
+  };
+
+
+$scope.suscripcionFooter=function(item){
+  // alert("nombre: "+item.nombre);
+  item.tipoSuscripcion="footer";
+  item.status="pendiente";
+  $http.post('http://54.202.62.62:1346/suscripcion',item)
+  $scope.popSuscripcion();
 };
+
 
 $scope.congiguracion=[];
 $scope.vectorCapacitaciones=[];
@@ -49,6 +64,9 @@ for (var i = 0; i < $scope.vectorCapacitaciones.length; ++i){
     title: 'Exito',
     type: 'success',
     text: 'Datos de cuenta actualizados con exito',
+    titleS: 'Exito',
+    typeS: 'success',
+    textS: 'Suscripción realizada con éxito'
   };
   $scope.filter = '';
 if ($scope.app.status=="pendiente"){$scope.vigilante="no"};
@@ -269,7 +287,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
@@ -297,7 +315,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
   $scope.openMantenimiento = function (item) {
@@ -323,7 +341,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
@@ -352,7 +370,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
@@ -523,7 +541,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
@@ -582,7 +600,7 @@ $scope.cargador=function()
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      // $log.info('Modal dismissed at: ' + new Date());
     });
   };
 

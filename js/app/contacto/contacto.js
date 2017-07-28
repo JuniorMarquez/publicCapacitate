@@ -8,12 +8,21 @@
 // }]);
 app.controller('contactoCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', 'datepickerConfig', 'toaster', '$state',function($scope,$http, $filter,$modal, MyService,filterFilter, datepickerConfig,toaster,$state) {
    $scope.toaster = {
-    // title: 'Exito',
-    // type: 'success',
-    // text: 'Miembro habilitado con exito',
+    titleM: 'Exito',
+    typeM: 'success',
+    textM: 'Mensaje Enviado con Éxito'
   };
   // alert("cargado");
-  
+
+   $scope.popMensaje = function(){
+      toaster.pop($scope.toaster.typeM, $scope.toaster.titleM, $scope.toaster.textM);
+    };
+
+    $scope.mensajeContacto=function(item){
+      $http.post('http://54.202.62.62:1346/mensaje',item)
+      // alert("lala");
+      $scope.popMensaje();
+    };
 $http.get('http://54.202.62.62:1346/contacto').success(function(respuesta){
   $scope.contacto = respuesta.results[0];
         $scope.direccion=$scope.contacto.direccion;

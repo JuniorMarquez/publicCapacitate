@@ -18,6 +18,7 @@
     "DASHBOARD" : "Inicio",
       "PROFESIONALES" : "Actualidad",
            "ENLACES" : "InCompany",
+           "FACILITADORES" : "Facilitadores",
      "MIEMBROS" : "Formacion y Capacitación",
 "SOLICITUDES" : "Solicitudes de soporte",
  "SOLICITUDESa" : "Nosotros",

@@ -21,7 +21,7 @@
   <div class="col" ng-controller="detalleCursoCtrl">
  <div class="main-content bg-lighter">
     <!-- Section: inner-header -->
-
+   <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
 
     <!-- Section: Blog -->
     <section>
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-md-8 blog-pull-right">
             <div class="single-service">
-              <img src="images/services/lg2.jpg" alt="">
+              <img src="{{capacitacion.img}}" alt="">
               <h3 class="text-theme-colored">{{capacitacion.titulo}}</h3>
               <h5><em>{{capacitacion.subtitulo}}</em></h5>
               <p></p>
@@ -40,88 +40,32 @@
               </li>
             </ul>
 
-             <!--    <span ng-repeat"item in itemsContenido">{{item.contenido}}</span> -->
               </p>
               <div class="row">
-              <!--   <div class="col-md-12">
-                  <h3 class="text-theme-colored">Features of the course </h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et optio cum velit autem dolor reprehenderit saepe assumenda eos, qui. Voluptatem eveniet, illum dolor nemo? Velit maiores quaerat a non dolor praesentium, corporis optio ullam, voluptatem fuga consequatur sed cupiditate quam!</p> <br>
-                  <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                      <div class="icon-box box-border text-center mb-20 p-15"> 
-                       <i class="fa fa-desktop text-theme-color-2 font-36"></i>
-                        <h4>Best Lab</h4>
-                      </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                      <div class="icon-box box-border text-center mb-20 p-15">
-                        <i class="fa fa-user text-theme-color-2 font-36"></i>
-                        <h4 class="">Best Teachers</h4>
-                      </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                      <div class="icon-box box-border text-center mb-20 p-15">
-                        <i class="fa fa-money text-theme-color-2 font-36"></i>
-                        <h4 class="">Low Cost Services</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <h3 class="text-theme-colored title-border mb-30 mt-50">Suscríbete y obtén información sobre nuestras capacitaciones!</h3>
-              
-                 
-                  <!-- <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="includes/appointment.php">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="form-group mb-10">
-                          <input id="form_name" name="form_name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group mb-10">
-                          <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group mb-10">
-                          <input id="form_phone" name="form_phone" class="form-control required" type="text" placeholder="Enter Phone" aria-required="true">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group mb-10">
-                          <input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group mb-10">
-                      <textarea id="form_message" name="form_message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
-                    </div>
-                    <div class="form-group mb-0 mt-20">
-                      <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                      <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Submit</button>
-                    </div>
-                  </form> -->
-                  
+       <!--        
+                  <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" action="includes/become-volunteer.php" method="post" enctype="multipart/form-data"> -->
 
-                  <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" action="includes/become-volunteer.php" method="post" enctype="multipart/form-data">
+                  <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" >
                 <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
      
-                      <input id="form_name" name="form_cedula" type="number" placeholder="C.I" required="" class="form-control">
+                      <input id="form_name" name="form_cedula" type="number" placeholder="C.I" required="" class="form-control" ng-model="item.identificacion">
                     </div>
                   </div>
                    <div class="col-sm-2">
                     <div class="form-group mb-4">
                 
                       <div class="styled-select">
-                        <select id="booking_service" name="booking_service" class="form-control" required="">
+                        <select id="booking_service" name="booking_service" ng-model="item.sexo"class="form-control" required="">
                             <option value="">- Sexo -</option>
-                        <option value="Accounting Technoloiges">F</option>
-                        <option value="Chemical Engineering">M</option>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
           
                         </select>
                       </div>
@@ -131,44 +75,44 @@
                   <div class="col-sm-5">
                     <div class="form-group">
 
-                      <input id="form_name" name="form_nombres" type="text" placeholder="Nombres" required="" class="form-control">
+                      <input id="form_name" name="form_nombres" type="text" ng-model="item.nombres" placeholder="Nombres" required="" class="form-control">
                     </div>
                   </div>
                         <div class="col-sm-5">
                     <div class="form-group">
                  
-                      <input id="form_name" name="form_apellidos" type="text" placeholder="Apellidos" required="" class="form-control">
+                      <input id="form_name" name="form_apellidos" type="text" ng-model="item.apellidos"placeholder="Apellidos" required="" class="form-control">
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">
 
-                      <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Email">
+                      <input id="form_email" name="form_email" class="form-control required email" ng-model="item.email"type="email" placeholder="Email">
                     </div>
                   </div>
                    <div class="col-sm-3">
                     <div class="form-group">
 
-                      <input id="form_name" name="form_telefono" type="number" placeholder="teléfono" required="" class="form-control">
+                      <input id="form_name" name="form_telefono" type="text"ng-model="item.telefono" placeholder="teléfono" required="" class="form-control">
                     </div>
                   </div>
                   <div class="row"></div>
                     <div class="col-sm-3">
                     <div class="form-group">
 
-                      <input id="form_email" name="form_instagram" class="form-control required" type="text" placeholder="Instagram">
+                      <input id="form_email" name="form_instagram" class="form-control required" ng-model="item.cuentaI" type="text" placeholder="Instagram">
                     </div>
                   </div>
                    <div class="col-sm-3">
                     <div class="form-group">
           
-                      <input id="form_name" name="form_facebook" type="text" placeholder="Facebook" required="" class="form-control">
+                      <input id="form_name" name="form_facebook" type="text" ng-model="item.cuentaF"placeholder="Facebook" required="" class="form-control">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
 
-                      <input id="form_name" name="form_twitter" type="text" placeholder="Twitter" required="" class="form-control">
+                      <input id="form_name" name="form_twitter" type="text" ng-model="item.cuentaT"placeholder="Twitter" required="" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -191,13 +135,13 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                 
-                      <input id="form_name" name="form_universidad" type="text" placeholder="Universidad" required="" class="form-control">
+                      <input id="form_name" name="form_universidad" type="text" ng-model="item.universidad"placeholder="Universidad" required="" class="form-control">
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
                 
-                      <input id="form_name" name="form_apellidos" type="text" placeholder="Carrera Universitaria" required="" class="form-control">
+                      <input id="form_name" name="form_apellidos" type="text" placeholder="Carrera Universitaria" ng-model="item.carrera"required="" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -206,7 +150,7 @@
                     <div class="form-group mb-10">
                    
                       <div class="styled-select">
-                        <select id="booking_service" name="booking_service" class="form-control" required="">
+                        <select id="booking_service" name="booking_service" ng-model="item.actividad" class="form-control" required="">
                             <option value="">- Áctividad académica de interés -</option>
                         <option value="Accounting Technoloiges">Aduanera y Tributaria</option>
                         <option value="Chemical Engineering">Contable y Financiera</option>
@@ -223,7 +167,7 @@
                    <div class="col-sm-12">
                     <div class="form-group">
                       <!-- <label for="form_name">Carrera universitaria<small>*</small></label> -->
-                      <input id="form_name" name="form_entero" type="text" placeholder="¿Cómo se enteró de Capacítate?" required="" class="form-control">
+                      <input id="form_name" name="form_entero" type="text" ng-model="item.informador" placeholder="¿Cómo se enteró de Capacítate?" required="" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -231,7 +175,7 @@
     
                 <div class="form-group">
                   <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                  <button type="submit" class="btn btn-block btn-primary2 btn-theme-colored btn-sm mt-20 pt-10 pb-10 bold" data-loading-text="Please wait...">Suscribirse</button>
+                  <button  class="btn btn-block btn-primary2 btn-theme-colored btn-sm mt-20 pt-10 pb-10 bold" data-loading-text="Please wait..." ng-click="suscripcionCapacitacion(item)">Suscribirse</button>
                 </div>
               </form>
                   <!-- Appointment Form Validation-->

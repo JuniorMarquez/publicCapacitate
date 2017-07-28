@@ -3,13 +3,23 @@
 
 app.controller('detalleCursoCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', 'datepickerConfig', 'toaster', '$state',function($scope,$http, $filter,$modal, MyService,filterFilter, datepickerConfig,toaster,$state) {
    $scope.toaster = {
-    title: 'Exito',
-    type: 'success',
-    text: 'Miembro habilitado con exito'
+    titleMC: 'Exito',
+    typeMC: 'success',
+    textMC: 'Suscripción realizada con éxito'
   };
 
    // alert("hola");
+$scope.popMensajeMC = function(){
+    toaster.pop($scope.toaster.typeMC, $scope.toaster.titleMC, $scope.toaster.textMC);
+  };
 
+  $scope.suscripcionCapacitacion=function(item){
+    item.tipoSuscripcion="capacitacion";
+    item.status="pendiente";
+    $http.post('http://54.202.62.62:1346/suscripcion',item)
+    // alert("lala");
+    $scope.popMensajeMC();
+  };
    $scope.cargaCursos=function(){
       // $scope.capacitacionesFiltradas=[];
     var area = MyService.data.areaSeleccionada;
@@ -29,6 +39,7 @@ $scope.carga=function(){
   // alert("identificador: "+identificador);
   $http.get('http://54.202.62.62:1346/capacitacion/'+identificador).success(function(respuesta){        
     item=respuesta;
+    item.img="administracion/js/controllers/uploads/"+item.img;
     $scope.capacitacion=item;
     $scope.itemsContenido=item.itemsContenido;
   });

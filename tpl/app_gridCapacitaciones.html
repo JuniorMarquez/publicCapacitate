@@ -19,14 +19,23 @@
   ">
   <!-- main -->
 <div ng-controller="gridCapacitacionesCtrl">
+<div>
+        <br/>
+        <ul class="breadcrumb bg-white b-a">
+          <li><a ui-sref="app.incompany"><i class="fa fa-home"></i> Capacitaciones</a></li>
+          <!-- <li><a href>{{selector}}</a></li> -->
+          <li class="active">{{seleccionado}}</li>
+        </ul>
+      </div>
     <section id="gallery"  >
      <div class="container pt-50 pb-30">
         <div class="section-content">
       
         <div class="row">
           <div class="col-md-12">
-            <h2 class="bold text-center">Selector:</h2> <h3 class=" text-center">{{selector}}</h3><p/>
-              <h2 class="bold text-center">Seleccionado:</h2> <h3 class=" text-center">{{seleccionado}}</h3>
+         
+          <!--   <h2 class="bold text-center">Selector:</h2> <h3 class=" text-center">{{selector}}</h3><p/>
+              <h2 class="bold text-center">Seleccionado:</h2> <h3 class=" text-center">{{seleccionado}}</h3> -->
             <!-- Portfolio Gallery Grid -->
             <div id="grid" class="gallery-isotope grid-4 gutter clearfix" ui-refresh="capacitacionesFiltradas">
      

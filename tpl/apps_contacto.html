@@ -19,6 +19,7 @@
   ">
   <!-- main -->
   <div class="col" ng-controller="contactoCtrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
   <div class="container pt-0">
   </br>
   </br>
@@ -95,19 +96,20 @@
           <div class="col-md-5 pull-right"> 
             <h4 class="mt-0 mb-30 line-bottom">Escríbenos un mensaje</h4>
             <!-- Contact Form -->
-            <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
+<!--             <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post"> -->
+<form id="contact_form" name="contact_form" >
 
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <!-- <label for="form_name">Nombres <small>*</small></label> -->
-                    <input name="form_name" class="form-control" type="text" placeholder="Nombre" required="">
+                    <input name="form_name" class="form-control" type="text" placeholder="Nombre" required="" ng-model="item.nombre">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <!-- <label>Email <small>*</small></label> -->
-                    <input name="form_email" class="form-control required email" type="email" placeholder="Email">
+                    <input name="form_email" class="form-control required email" type="email" placeholder="Email" ng-model="item.email">
                   </div>
                 </div>
               </div>                
@@ -115,24 +117,26 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <!-- <label for="form_name">Asunto <small>*</small></label> -->
-                    <input name="form_subject" class="form-control required" type="text" placeholder="Asunto">
+                    <input name="form_subject" class="form-control required" type="text" placeholder="Asunto" 
+                    ng-model="item.asunto">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <!-- <label for="form_phone">Teléfono</label> -->
-                    <input name="form_phone" class="form-control" type="text" placeholder="Teléfono">
+                    <input name="form_phone" class="form-control" type="text" placeholder="Teléfono" ng-model="item.telefono">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <!-- <label for="form_name">Mensaje</label> -->
-                <textarea name="form_message" class="form-control required" rows="5" placeholder="Mensaje"></textarea>
+                <textarea name="form_message" class="form-control required" rows="5" placeholder="Mensaje" 
+                ng-model="item.mensaje"></textarea>
               </div>
               <div class="form-group pull-right">
                 <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Espere por favor...">Enviar</button>
+                <button class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Espere por favor..." ng-click="mensajeContacto(item)">Enviar</button>
                 <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Borrar</button>
               </div>
             </form>

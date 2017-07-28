@@ -19,6 +19,7 @@
   ">
   <!-- main -->
 <div ng-controller="IncompanyCtrl">
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
     <section id="gallery"  >
      <div class="container pt-50 pb-30">
         <div class="section-content">
@@ -56,7 +57,90 @@
         </div>
       </div>
     </section>
+    <div class="row" style="width: 80%;margin: 0 auto;">
+      <h3 class="text-theme-colored title-border mb-30 mt-50 text-center">Suscripción para Empresas</h3>
+    <div class="col-sm-12">
+               <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" >
+                <div class="row">
+                <div class="col-sm-3">
+              
+                  </div>
+                  
+                  <div class="row"></div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
 
+                      <input id="form_name" name="form_nombres" type="text" ng-model="item.nombreEmpresa" placeholder="Nombre de la Empresa" required="" class="form-control">
+                    </div>
+                  </div>
+                        <div class="col-sm-12">
+                    <div class="form-group">
+                 
+                      <input id="form_name" name="form_apellidos" type="text" ng-model="item.personaContacto "placeholder="Persona de contacto" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+
+                      <input id="form_email" name="form_email" class="form-control required email" ng-model="item.email"type="email" placeholder="Email de contacto">
+                    </div>
+                  </div>
+                   <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input id="form_name" name="form_telefono" type="text"ng-model="item.telefono" placeholder="teléfono" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row"></div>
+                    <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input  name="form_instagram" class="form-control required" ng-model="item.cuentaI" type="text" placeholder="Instagram">
+                    </div>
+                  </div>
+                   <div class="col-sm-3">
+                    <div class="form-group">
+          
+                      <input  name="form_facebook" type="text" ng-model="item.cuentaF"placeholder="Facebook" required="" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+
+                      <input  name="form_twitter" type="text" ng-model="item.cuentaT"placeholder="Twitter" required="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+               <div class="col-sm-8">
+                    <div class="form-group mb-12">
+                
+                      <div class="styled-select">
+                        <select id="booking_service" name="booking_service" ng-model="item.area"class="form-control" required="">
+                            <option value="">- Area de conocimiento de interés -</option>
+                            <option value="Todas">Todas</option>
+                        <option value="Aduanera y Tributaria">Aduanera y Tributaria</option>
+                        <option value="Contable y Financiera">Contable y Financiera</option>
+                         <option value="Formación Gerencial y Empresarial">Formación Gerencial y Empresarial</option>
+                         <option value="Formación Pedagógica">  Formación Pedagógica</option>
+                         <option value="Legislación">Legislación</option>
+                         <option value="Marketing y Ventas">Marketing y Ventas</option>
+                         <option value="Laboral, Seguridad y Salud Ocupacional">Laboral, Seguridad y Salud Ocupacional</option>
+                         <option value="Tecnología de la información y Comunicación">Tecnología de la información y Comunicación</option>
+          
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+              
+               
+    
+                <div class="form-group">
+                  <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+                  <button  class="btn btn-block btn-primary2 btn-theme-colored btn-sm mt-20 pt-10 pb-10 bold" data-loading-text="Please wait..." ng-click="suscripcionIncompany(item)">Suscribirse</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
 </div>
 

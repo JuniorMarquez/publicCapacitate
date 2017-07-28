@@ -6,9 +6,22 @@
 // }]);
 app.controller('IncompanyCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', 'datepickerConfig', 'toaster', '$state',function($scope,$http, $filter,$modal, MyService,filterFilter, datepickerConfig,toaster,$state) {
    $scope.toaster = {
-    // title: 'Exito',
-    // type: 'success',
-    // text: 'Miembro habilitado con exito',
+    titleMI: 'Exito',
+    typeMI: 'success',
+    textMI: 'Suscripción ralizada con éxito',
+  };
+
+
+  $scope.popMensajeMI = function(){
+    toaster.pop($scope.toaster.typeMI, $scope.toaster.titleMI, $scope.toaster.textMI);
+  };
+
+  $scope.suscripcionIncompany=function(item){
+    item.tipoSuscripcion="incompany";
+    item.status="pendiente";
+    $http.post('http://54.202.62.62:1346/suscripcion',item)
+    // alert("lala");
+    $scope.popMensajeMI();
   };
   // alert("cargado");
   $scope.selectorAreas=function(){
