@@ -389,19 +389,16 @@ $scope.okEspecialidad = function (item) {
     };
     
 $scope.okAprobacion = function (item) {
-    var identificador = MyService.data.idenMiembro;
-    var miembroAct={};
-    miembroAct.status="validado";
-    miembroAct.cot=item.cot;
-    miembroAct.especialidad=item.especialidad;
-    miembroAct.universidadEgresoEspecialidad=item.universidadEgresoEspecialidad;
-    miembroAct.anoDeEgresoEspecialidad=item.anoDeEgresoEspecialidad;
-    $http.put('http://54.202.62.62:1345/miembro/'+identificador, miembroAct);
+    var identificador = MyService.data.idenSuscripcion;
+    var suscripcionAct={};
+    suscripcionAct.status="validada";  
+    suscripcionAct.anoDeEgresoEspecialidad=item.anoDeEgresoEspecialidad;
+    $http.put('http://54.202.62.62:1346/suscripcion/'+identificador, suscripcionAct);
     $modalInstance.close();
     setTimeout(function() { 
-      $http.get('http://54.202.62.62:1345/miembro/' ).success(function(respuesta){
-      $scope.miembros = respuesta.results; 
-        MyService.data.miembros=$scope.miembros;
+      $http.get('http://54.202.62.62:1346/suscripcion/' ).success(function(respuesta){
+      $scope.suscripciones = respuesta.results; 
+        MyService.data.suscripciones=$scope.suscripciones;
     });}, 300);
    
     $scope.popAprobacion();

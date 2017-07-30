@@ -18,8 +18,8 @@ app.controller('FacilitadoresCtrl', ['$scope', '$http', '$filter', '$modal', 'My
         $scope.facilitadores = resp.data.results;
         for (var i = 0; i < $scope.facilitadores.length; ++i){
                   // $scope.facilitadores[i].link="../capacitateMod/detalleCurso.html?id="+$scope.facilitadores[i].id;  
-                   $scope.facilitadores[i].img="administracion/js/controllers/uploads/facilitadores"+$scope.facilitadores[i].img;          
-                   $scope.facilitadores[i].img2="administracion/js/controllers/uploads/facilitadores"+$scope.facilitadores[i].img;
+                   $scope.facilitadores[i].img="administracion/js/controllers/uploads/facilitadores/"+$scope.facilitadores[i].img;          
+                   $scope.facilitadores[i].img2="administracion/js/controllers/uploads/facilitadores/"+$scope.facilitadores[i].img;
                    $scope.items.push($scope.facilitadores[i]);
 
                }
