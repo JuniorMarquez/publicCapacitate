@@ -23,6 +23,11 @@ app.controller('contactoCtrl', ['$scope', '$http', '$filter', '$modal', 'MyServi
       // alert("lala");
       $scope.popMensaje();
     };
+
+      $http.get('http://54.202.62.62:1346/emailcorporativo/').then(function (resp) {
+        $scope.emails = resp.data.results;
+      });
+
 $http.get('http://54.202.62.62:1346/contacto').success(function(respuesta){
   $scope.contacto = respuesta.results[0];
         $scope.direccion=$scope.contacto.direccion;
