@@ -69,28 +69,37 @@
     };
   }])
   ; 
-  app.controller('CarouselDemoCtrl', ['$scope', function($scope) {
+  app.controller('CarouselDemoCtrl', ['$scope', '$http',function($scope,$http) {
 
 
 
     
     $scope.myInterval = 5000;
-    var slides = $scope.slides = [];
+     $http.get('http://54.202.62.62:1346/slide').then(function (resp) {
+    $scope.slides = resp.data.results;
+    for (var i=0; i<$scope.slides.length; i++) {
+      $scope.slides[i].image='administracion/js/controllers/uploads/slides/uploads/'+$scope.slides[i].img;
+    }
+     var slides = $scope.slides;
+  });
+   
+    // var slides = $scope.slides = [];
 
-    $scope.addSlide = function() {
-      slides.push({
+    // $scope.addSlide = function() {
 
-        image: 'img/c' + slides.length + '.jpg',
-         background: 'url('+'img/c' + slides.length + '.jpg'+')'
+    //   slides.push({
 
-        // text: ['Carousel text #0','Carousel text #1','Carousel text #2','Carousel text #3'][slides.length % 4]
-      });
+    //     image: 'img/c' + slides.length + '.jpg',
+    //      background: 'url('+'img/c' + slides.length + '.jpg'+')'
+
+    //     // text: ['Carousel text #0','Carousel text #1','Carousel text #2','Carousel text #3'][slides.length % 4]
+    //   });
      
 
-    };
-    for (var i=0; i<3; i++) {
-      $scope.addSlide();
-    }
+    // };
+    // for (var i=0; i<3; i++) {
+    //   $scope.addSlide();
+    // }
   }])
   ; 
   app.controller('DropdownDemoCtrl', ['$scope', function($scope) {

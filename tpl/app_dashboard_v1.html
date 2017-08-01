@@ -18,8 +18,8 @@
     app.settings.asideDock = true;
   ">
   <!-- main -->
-  <div class="col" ng-controller="FlotChartDemoCtrl">
-   <div ng-controller="CarouselDemoCtrl" class="panel b-a" set-ng-animate="false">
+  <div class="col" ng-controller="CarouselDemoCtrl">
+   <div  class="panel b-a" set-ng-animate="false" ui-refresh="slides">
         <carousel interval="myInterval">
           <slide ng-repeat="slide in slides" active="slide.active">
             <img ng-src="{{slide.image}}" class="img-full">
