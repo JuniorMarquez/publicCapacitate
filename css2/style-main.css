@@ -279,6 +279,9 @@ padding-bottom:50px;
 .cursos{
 
 }
+.precio{
+  background-image: url("../images/priceLabel.png"); 
+}
 /* breadcrumb */
 .breadcrumb {
   background-color: transparent;
@@ -286,7 +289,7 @@ padding-bottom:50px;
   text-align: center;
 }
 .breadcrumb > li + li::before {
-  content: "\f22d";
+  /*content: "\f22d";*/
   font-family: fontawesome;
   font-size: 9px;
 }
@@ -2332,7 +2335,7 @@ form .error {
   opacity: 0;
   padding: 30px;
   position: absolute;
-  top: 0;
+  top: 20px;
   -webkit-transform: scale(0.2);
   -ms-transform: scale(0.2);
   -o-transform: scale(0.2);

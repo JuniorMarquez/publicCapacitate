@@ -164,7 +164,7 @@
      <div class="container pt-50 pb-30">
         <div class="section-content">
       
-        <div class="row">
+        <div class="row" ng-controller="gridCursosCtrl">
           <div class="col-md-12">
             
             <!-- Portfolio Gallery Grid -->
@@ -173,7 +173,7 @@
                <div class="gallery-item wheel" ng-repeat="curso in vectorCursos1" >
                 <!-- <div class="gallery-item wheel" ng-repeat="curso in vectorCursos1" style="display: inline-block;" ui-refresh="vectorCursos1"> -->
                 <div class="work-gallery">
-                <a ui-sref="app.detalleCurso" ng-click="openCurso">
+                <a ui-sref="app.detalleCurso" ng-click="openCurso(curso)">
                   <div class="gallery-thumb">
                     <img class="img-fullwidth" alt="" src="{{curso.img}}">
                     <div class="gallery-overlay"></div>                  
@@ -185,12 +185,12 @@
                     </div> 
                   </div>
                   </a>
-                  <div class="gallery-bottom-part text-center">
+                <!--   <div class="gallery-bottom-part text-center">
                     
-                    <!-- <h4 class="sub-title m-0 " style="color:#120D6D;">{{curso.titulo}}</h4> -->
+                    
                     <h4 class="title text-uppercase text-white font-raleway font-weight-500 m-0">{{curso.titulo}}</h4>
                     <h5 class="title text-uppercase text-white font-raleway font-weight-500 m-0">{{curso.subtitulo}}</h5>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               

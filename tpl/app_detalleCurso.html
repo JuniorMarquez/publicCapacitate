@@ -19,7 +19,7 @@
   ">
   <!-- main -->
   <div class="col" ng-controller="detalleCursoCtrl">
- <div class="main-content bg-lighter">
+ <div class="main-content bg-lighter" style="padding-bottom:0px;">
     <!-- Section: inner-header -->
    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
 
@@ -27,32 +27,92 @@
     <section>
       <div class="container mt-30 mb-0 pt-30 pb-30">
         <div class="row">
-          <div class="col-md-8 blog-pull-right">
-            <div class="single-service">
-              <img src="{{capacitacion.img}}" alt="">
+        <div class="col-sm-12 col-md-4">
+            <div class="sidebar sidebar-left mt-sm-30 ml-40">
+              <div class="widget">
+                <img src="{{capacitacion.img}}" alt="">
+                <div class="services-list">
+                  <ul class="list list-border angle-double-right">
+                    <li ng-repeat="capacitacion in capacitacionesFiltradas"><a href="page-courses-accounting-technologies.html">{{capacitacion.titulo}}</a></li>
+                    
+                  </ul>
+                </div>
+          </div>
+        </div>
+      </div>
+          <div class="col-md-5 ">
+            <!-- <div class="single-service"> -->
+             
               <h3 class="text-theme-colored">{{capacitacion.titulo}}</h3>
               <h5><em>{{capacitacion.subtitulo}}</em></h5>
               <p></p>
               <p >
             <ul>
               <li  ng-repeat="item in itemsContenido">
-                {{item.contenido}}
+                - {{item.contenido}}
               </li>
             </ul>
 
+
               </p>
+              <p>
+                
               <div class="row">
 
               </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="text-theme-colored title-border mb-30 mt-50">Suscríbete y obtén información sobre nuestras capacitaciones!</h3>
-       <!--        
-                  <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" action="includes/become-volunteer.php" method="post" enctype="multipart/form-data"> -->
+            
+           <!--  </div> -->
+          </div>
 
+          <div class="col-md-3 ">
+          <p></p>
+           <h3 class="text-white">{{capacitacion.subtitulo}}</h3>
+           <h5><em>Duración:</em></h5>
+                {{capacitacion.duracion}}
+              </p>
+              <p>
+                 <h5><em>Observaciones:</em></h5>
+                {{capacitacion.observaciones}}
+              </p>
+
+           <div class="precio text-white"  style="background-image: url(images/priceLabel.png);height: 219px;;
+           width: 281px;">
+           <br/>
+           <!-- <br/> -->
+           <br/>
+           <span class="text-center"><h3><span class="text-white">Bs.F. {{capacitacion.inversion |number:0 }}</span></h3></span>
+           <br/>
+           <br/>
+           <br/>
+           </div>   
+          </div>
+          
+    </section>
+    <div class="row bg-light">
+    <div class="col-md-12">
+
+     <div class="col-md-12">
+          <div class="row">
+                <div class="col-md-12">
+                 
+ 
                   <form id="volunteer_apply_form" class="bg-light p-30 pb-15" name="job_apply_form" >
                 <div class="row">
-                <div class="col-sm-3">
+                <h3>Suscríbete y obtén información sobre nuestras capacitaciones!</h3>
+                  <br/>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+
+                      <input id="form_name" name="form_nombres" type="text" ng-model="item.nombres" placeholder="Nombres" required="" class="form-control">
+                    </div>
+                  </div>
+                        <div class="col-sm-2">
+                    <div class="form-group">
+                 
+                      <input id="form_name" name="form_apellidos" type="text" ng-model="item.apellidos"placeholder="Apellidos" required="" class="form-control">
+                    </div>
+                  </div>
+                <div class="col-sm-2">
                     <div class="form-group">
      
                       <input id="form_name" name="form_cedula" type="number" placeholder="C.I" required="" class="form-control" ng-model="item.identificacion">
@@ -71,33 +131,24 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row"></div>
-                  <div class="col-sm-5">
-                    <div class="form-group">
-
-                      <input id="form_name" name="form_nombres" type="text" ng-model="item.nombres" placeholder="Nombres" required="" class="form-control">
-                    </div>
-                  </div>
-                        <div class="col-sm-5">
-                    <div class="form-group">
-                 
-                      <input id="form_name" name="form_apellidos" type="text" ng-model="item.apellidos"placeholder="Apellidos" required="" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
+                   <div class="col-sm-3">
                     <div class="form-group">
 
                       <input id="form_email" name="form_email" class="form-control required email" ng-model="item.email"type="email" placeholder="Email">
                     </div>
                   </div>
+                 
+                  <div class="row"></div>
+                 
+                 
                    <div class="col-sm-3">
                     <div class="form-group">
 
-                      <input id="form_name" name="form_telefono" type="text"ng-model="item.telefono" placeholder="teléfono" required="" class="form-control">
+                      <input id="form_name" name="form_telefono" type="text"ng-model="item.telefono" placeholder="Teléfono" required="" class="form-control">
                     </div>
+
                   </div>
-                  <div class="row"></div>
-                    <div class="col-sm-3">
+                            <div class="col-sm-3">
                     <div class="form-group">
 
                       <input id="form_email" name="form_instagram" class="form-control required" ng-model="item.cuentaI" type="text" placeholder="Instagram">
@@ -115,30 +166,18 @@
                       <input id="form_name" name="form_twitter" type="text" ng-model="item.cuentaT"placeholder="Twitter" required="" class="form-control">
                     </div>
                   </div>
+                  <div class="row"></div>
+          
                 </div>
                  <div class="row">
-                 <!--  <div class="col-sm-12">
-                    <div class="form-group mb-10">
-    
-                      <div class="styled-select">
-                        <select id="booking_service" name="booking_service" class="form-control" required="">
-                            <option value="">- Universidad -</option>
-                        <option value="Accounting Technoloiges">Universidad Nacional Experimental del Táchira</option>
-                        <option value="Chemical Engineering"></option>
-                        <option value="Computer Technologies">Universidad de los Andes</option>
-                        <option value="Development Studies">Universidad de Carabobo</option>
-                 
-                        </select>
-                      </div>
-                    </div>
-                  </div> -->
-                  <div class="col-sm-12">
+          
+                  <div class="col-sm-6">
                     <div class="form-group">
                 
                       <input id="form_name" name="form_universidad" type="text" ng-model="item.universidad"placeholder="Universidad" required="" class="form-control">
                     </div>
                   </div>
-                  <div class="col-sm-12">
+                  <div class="col-sm-6">
                     <div class="form-group">
                 
                       <input id="form_name" name="form_apellidos" type="text" placeholder="Carrera Universitaria" ng-model="item.carrera"required="" class="form-control">
@@ -146,12 +185,12 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group mb-10">
+                  <div class="col-sm-6">
+                    <div class="form-group mb-6">
                    
                       <div class="styled-select">
-                        <select id="booking_service" name="booking_service" ng-model="item.actividad" class="form-control" required="">
-                            <option value="">- Áctividad académica de interés -</option>
+                        <select id="booking_service" name="booking_service" ng-model="item.actividad" class="form-control" required="" placeholer="Área de conocimiento de interés">
+                            <option value="">Seleccione un área de conocimiento de interés ...</option>
                         <option value="Todas">Todas</option>
                         <option value="Aduanera y Tributaria">Aduanera y Tributaria</option>
                         <option value="Contable y Financiera">Contable y Financiera</option>
@@ -165,9 +204,9 @@
                       </div>
                     </div>
                   </div>
-                   <div class="col-sm-12">
+                   <div class="col-sm-6">
                     <div class="form-group">
-                      <!-- <label for="form_name">Carrera universitaria<small>*</small></label> -->
+                 
                       <input id="form_name" name="form_entero" type="text" ng-model="item.informador" placeholder="¿Cómo se enteró de Capacítate?" required="" class="form-control">
                     </div>
                   </div>
@@ -176,135 +215,25 @@
     
                 <div class="form-group">
                   <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                  <button  class="btn btn-block btn-primary2 btn-theme-colored btn-sm mt-20 pt-10 pb-10 bold" data-loading-text="Please wait..." ng-click="suscripcionCapacitacion(item)">Suscribirse</button>
+                  <p></p>
+                  <p></p>
+                  <br/>
+                  <button  class="btn btn-xl btn-primary2 text-center pull-right font-bold" data-loading-text="Please wait..." ng-click="suscripcionCapacitacion(item)">Suscribirse</button>
+                  <p></p>
+                  <p></p>
+                  <br/>
                 </div>
               </form>
-                  <!-- Appointment Form Validation-->
-
-                  <!-- Appointment Form Ends -->
+                 
 
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="sidebar sidebar-left mt-sm-30 ml-40">
-              <div class="widget">
-                <h4 class="widget-title line-bottom">Listado de cursos</h4>
-                <div class="services-list">
-                  <ul class="list list-border angle-double-right">
-                    <li ng-repeat="capacitacion in capacitacionesFiltradas"><a href="page-courses-accounting-technologies.html">{{capacitacion.titulo}}</a></li>
-                    
-                  </ul>
-                </div>
-              </div>
-           <!--    <div class="widget">
-                <h4 class="widget-title line-bottom">Opening Hours</h4>
-                <div class="opening-hours">
-                  <ul class="list-border">
-                    <li class="clearfix"> <span> Mon - Tues :  </span>
-                      <div class="value pull-right"> 6.00 am - 10.00 pm </div>
-                    </li>
-                    <li class="clearfix"> <span> Wednes - Thurs :</span>
-                      <div class="value pull-right"> 8.00 am - 6.00 pm </div>
-                    </li>
-                    <li class="clearfix"> <span> Fri : </span>
-                      <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
-                    </li>
-                    <li class="clearfix"> <span> Sun : </span>
-                      <div class="value pull-right"> Colosed </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> -->
-<!--               <div class="widget">
-                <h4 class="widget-title line-bottom">Latest News</h4>
-                <div class="latest-posts">
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
-                </div>
-              </div> -->
-            <!--   <div class="widget">
-                <div class="mt-30 p-30" style="border: 10px solid #f1f1f1;">
-                  <h5 class="text-theme-colored title-border mb-20">student's Feedback</h5>
-                  <div class="testimonial-carousel-info owl-nav-top">
-                    <div class="item">
-                      <div class="comment">
-                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
-                      </div>
-                      <div class="content mt-20">
-                        <div class="thumb pull-right">
-                          <img class="img-circle" alt="" src="images/testimonials/s1.jpg">
-                        </div>
-                        <div class="patient-details text-right pull-right mr-20 mt-10">
-                          <h5 class="author">Jonathan Smith</h5>
-                          <h6 class="title">cici inc.</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="comment">
-                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
-                      </div>
-                      <div class="content mt-20">
-                        <div class="thumb pull-right">
-                          <img class="img-circle" alt="" src="images/testimonials/s2.jpg">
-                        </div>
-                        <div class="patient-details text-right pull-right mr-20 mt-10">
-                          <h5 class="author">Jonathan Smith</h5>
-                          <h6 class="title">cici inc.</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="comment">
-                        <p>Lorem ipsum dolor sit ametconse ctetur adipisicing elitvolup tatem error sit qui dolorem facilis.</p>
-                      </div>
-                      <div class="content mt-20">
-                        <div class="thumb pull-right">
-                          <img class="img-circle" alt="" src="images/testimonials/s3.jpg">
-                        </div>
-                        <div class="patient-details text-right pull-right mr-20 mt-10">
-                          <h5 class="author">Jonathan Smith</h5>
-                          <h6 class="title">cici inc.</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-          <!--     <div class="widget">
-                <h4 class="widget-title line-bottom">Photos from Flickr</h4>
-                <div id="flickr-feed" class="clearfix">
-       
-                  <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=52617155@N08">
-                  </script>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </section>
+
+
+
+     </div>
+    </div>
+    </div>
   </div>
         
       </div>

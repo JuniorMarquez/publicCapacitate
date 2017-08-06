@@ -3200,7 +3200,8 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-black.dk,
 .bg-black .dk {
-  background-color: #312E6D;
+  background-color: #312E6DCC;
+  /*background-color: #312E6D;*/
     /*background-color: #131e26; fondo celda grupo*/
 
   
@@ -4387,7 +4388,7 @@ a.text-#000000:hover {
 
 .b-a {
   
-  border: 1px solid #dee5e7;
+  /*border: 1px solid #dee5e7;*/
   /*border: 1px solid #272C32;*/
 }
 

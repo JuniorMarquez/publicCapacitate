@@ -51,7 +51,8 @@ angular.module('app')
                           return $ocLazyLoad.load(['ui.select','toaster']).then(
                               function(){
                                   return $ocLazyLoad.load(['js/controllers/chart.js',
-                                                  'js/controllers/bootstrap.js']);
+                                                  'js/controllers/bootstrap.js',
+                                                          'js/app/formacionCapacitacion/gridCursos.js']);
                               }
                           );
                       }]
